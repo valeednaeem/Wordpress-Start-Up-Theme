@@ -102,6 +102,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -10854,16 +10855,11 @@ ul#menu-main-menu .menu-item a {
     color: #fff;
     text-decoration: none;
     background-color: #212529;
-    border-radius: 8px;
-    border: 1px solid #fff;
-    box-shadow: #c0c0c0 -2px 2px;
 }
 
 ul#menu-main-menu .menu-item a:hover, ul#menu-main-menu .current_page_item a {
-    color: #000;
     text-decoration: underline;
-    background-color: #fff;
-    border: 1px solid #212529;
+    border-radius: 8px;
 }
 
 ul#menu-footer-menu .menu-item a {

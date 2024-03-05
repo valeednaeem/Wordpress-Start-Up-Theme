@@ -1,6 +1,8 @@
 <?php
 
-    include("includes/index.php");
+    include(get_template_directory()."/includes/include-db.php");
+
+    $database = new db(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
 
     //add_theme_support('admin-bar');
     add_theme_support('automatic-feed-links');
@@ -17,7 +19,7 @@
     add_theme_support('woocommerce');
     add_theme_support('wp_list_comments');
 
-    add_post_type_support('page','excerpt');
+    add_post_type_support('page', 'excerpt');
 
     // Custom Post Type - Books
 
@@ -69,7 +71,7 @@
 
     add_action( 'init', 'custom_post_type_registration' );
 
-    register_nav_menus( 
+    register_nav_menus(
         array(
             'main-menu'                 => 'Main Menu',
             'footer-menu'               => 'Footer Menu',
@@ -201,18 +203,11 @@
         wp_enqueue_style( "bootstrap-css", get_template_directory()."assets/bootstrap.min.css", "", null, "all" );
         wp_enqueue_style( "start-up-css", get_stylesheet_uri(), "", null, "all" );
         //filemtime(get_template_directory()."script.js")
-        wp_enqueue_script( "start-up-jscript", get_template_directory_uri()."/js/scripts.js", ['jquery'], '', true );
-        wp_enqueue_script( "bootstrap-js", get_template_directory_uri()."/assets/bootstrap.bundle.min.js", ['jquery'], '', true );
+        wp_enqueue_script( "start-up-jscript", get_template_directory()."js/scripts.js", ['jquery'], '', true );
+        wp_enqueue_script( "bootstrap-js", get_template_directory()."assets/bootstrap.bundle.min.js", ['jquery'], '', true );
     }
 
     add_action("wp_enqueue_scripts", "start_up_enqueue_scripts");
-
-    function init_hooks() {
-        // Adding actions when activating theme
-
-    }
-
-    add_action("init", "init_hooks");
 
     if ( ! isset( $content_width ) ) $content_width = 900;
 

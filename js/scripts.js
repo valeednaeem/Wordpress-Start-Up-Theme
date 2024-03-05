@@ -8,6 +8,6 @@
 
 jQuery(document).ready(function () {
     jQuery(document).click(function () {
-        alert("You clicked on the web page.");
+        // alert("You clicked on the web page.");
     });
 });
